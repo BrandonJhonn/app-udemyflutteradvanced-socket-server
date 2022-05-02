@@ -24,6 +24,11 @@
     socket.on('mensaje', function(payload) {
       console.log('Escuchando: ', payload);
     });
+
+    // Escuchar evento desde Flutter
+    socket.on('nuevo-mensaje', function(payload) {
+      console.log('Escuchando desde Flutter: ', payload);
+    });
   </script>
 </body>
 </html>

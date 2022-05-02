@@ -11,4 +11,9 @@ io.on('connection', (cliente) => {
     console.log('Mensaje recibido: ', payload);
     io.emit('mensaje', {admin: 'Nuevo mensaje'});
   });
+
+  cliente.on('emitir-mensaje', (payload) => {
+    //io.emit('nuevo-mensaje', payload);  // Emite a todos los clientes
+    cliente.broadcast.emit('nuevo-mensaje', payload); // Emite a todos los clientes excepto al que lo envia
+  })
 });
