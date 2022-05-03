@@ -21,14 +21,22 @@
 
     socket.emit('mensaje', {sms: 'Hola desde cliente'});
     
-    socket.on('mensaje', function(payload) {
-      console.log('Escuchando: ', payload);
-    });
+    //  Escuchar eventos
+    //socket.on('mensaje', function(payload) {
+    //  console.log('Escuchando: ', payload);
+    //});
 
     // Escuchar evento desde Flutter
     socket.on('nuevo-mensaje', function(payload) {
       console.log('Escuchando desde Flutter: ', payload);
     });
+
+    // Escuchar evento 'active-bands'
+    socket.on('active-bands', function(payload) {
+      console.clear();
+      console.table(payload);
+    });
+
   </script>
 </body>
 </html>
